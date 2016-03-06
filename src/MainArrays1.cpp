@@ -2,13 +2,11 @@
 #include <stdio.h>
 
 int main(){
-
+	//struct student students[3] = { { "stud1", 70 }, { "stud2", 60 }, { "stud3", 50 } };
+	//scoresDescendingSort(students, 3);
 	//Test RemoveArraysDuplicates
-	/*
-	int arr[3] = { 1, 2, 7 };
-	int len = removeArrayDuplicates(arr, 3);
-	printf("%d", len);
-	*/
+	
+	
 
 	//Test Students Count
 	/*

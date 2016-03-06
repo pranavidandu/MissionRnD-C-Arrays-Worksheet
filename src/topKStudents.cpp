@@ -20,7 +20,26 @@ struct student {
 	char *name;
 	int score;
 };
-
+struct student * bubble_sort(struct student *students, int len){
+	for (int pass = 0; pass < len - 1; pass++){
+		for (int j = 0; j < len - pass - 1; j++){
+			if (students[j].score > students[j + 1].score){
+				 students[j].score = students[j].score + students[j + 1].score;
+				 students[j + 1].score = students[j].score - students[j + 1].score;
+				 students[j].score = students[j].score - students[j + 1].score;
+			}
+		}
+	}
+	return students;
+}
 struct student ** topKStudents(struct student *students, int len, int K) {
-	return NULL;
+	if (students == NULL || len < 0 || K <= 0)
+		return NULL;
+	if (K > len)
+		K = len;
+	struct student **result = (struct student**)malloc(sizeof(struct student) * K);
+	students = bubble_sort(students, len);
+	for (int i = len - K, j = 0; i < len; i++, j++)
+		result[j] = &students[i];
+	return result;
 }

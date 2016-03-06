@@ -15,5 +15,29 @@ NOTES:
 
 void * sortedArrayPositionsChange(int *Arr, int len)
 {
-	return NULL;
+	if (len < 0 || Arr == NULL)//checks if the array is empty or the input is invalid
+		return NULL;
+	int temp;
+	int index;
+	//finds the first element whose position is exchanged
+	for (int i = 0; i < len; i++){
+		if (Arr[i] < Arr[i + 1]){
+			continue;
+		}
+		else{
+			temp = Arr[i];
+			index = i;
+			break;
+		}
+	}
+	// finds the second element and swaps with first element
+	for (int i = len - 1; i > index; i--){
+		if (Arr[i] > Arr[i - 1])
+			continue;
+		else{
+			Arr[index] = Arr[i];
+			Arr[i] = temp;
+			break;
+		}
+	}
 }
